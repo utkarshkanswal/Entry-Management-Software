@@ -32,7 +32,14 @@ app.get("/CheckOut", function (req, res) {
     res.render("CheckOut");
 });
 
-
+app.post("/CheckIn", function (req, res) {
+    console.log(req.body);
+    res.send("Post Request");
+});
+app.post("/CheckOut", function (req, res) {
+    console.log(req.body);
+    res.send("Post Request");
+});
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`);
 })

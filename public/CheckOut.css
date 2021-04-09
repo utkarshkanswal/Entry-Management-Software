@@ -1,0 +1,41 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(69, 111, 146);
+}
+
+h2 {
+    font-size: 30px;
+}
+
+.container {
+    width: 500px;
+    height: 400px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    border: ridge #050505;
+    box-shadow: 25px 25px 25px 0 rgba(15, 12, 12, 0.2);
+    background-color: rgb(194, 172, 144);
+    margin-top: 50px;
+}
+
+.container .email input {
+    font-size: 20px;
+}
+
+.container .lastrow .btn {
+    height: 70px;
+    width: 150px;
+    font-size: 20px;
+    font-weight: 600;
+    color: black;
+    margin-top: 50px;
+
+}
+
+.container .lastrow .btn:hover {
+    background: none;
+}
