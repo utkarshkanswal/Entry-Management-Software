@@ -4,6 +4,97 @@ body {
     background-color: rgb(69, 111, 146);
 }
 
+.navbar {
+    display: flex;
+    background-color: rgb(69, 111, 146);
+
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand-title {
+    font-size: 2rem;
+    margin: .5rem;
+    font-weight: 600;
+    margin-left: 140px;
+    color: rgb(233, 222, 222);
+}
+
+.brand-title a {
+    text-decoration: none;
+    color: rgb(228, 222, 222);
+}
+
+.brand-title span {
+    color: #c3865e;
+
+}
+
+.navbar-link ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 20px;
+    overflow: hidden;
+    display: flex;
+}
+
+.navbar-link li {
+    list-style: none;
+}
+
+.navbar-link li a {
+    display: block;
+    color: rgb(243, 246, 242);
+    padding: 1rem;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 17px;
+}
+
+.navbar-link li a:hover {
+    background-color: rgb(221, 212, 212);
+    color: rgb(14, 12, 12);
+}
+
+.navbar-link span {
+    margin-right: 12px;
+    /* color: rgb(33, 71, 102); */
+    color: #c3865e;
+}
+
+.toggle-button {
+    position: absolute;
+    top: .75rem;
+    right: 1rem;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+}
+
+.toggle-button .bar {
+    height: 3px;
+    width: 100%;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.header {
+    background-color: rgb(163, 163, 163);
+    margin: 20px;
+    margin-left: 200px;
+    margin-right: 200px;
+    padding: 15px;
+}
+
+.header h1 {
+    text-align: center;
+    font-size: 60px;
+    color: rgb(255, 255, 255);
+    font-weight: 600;
+}
+
 h2 {
     font-size: 30px;
 }
@@ -23,7 +114,9 @@ h2 {
 }
 
 .container .email input {
-    font-size: 20px;
+    height: 30px;
+    width: 250px;
+    border-radius: 5px;
 }
 
 .container .lastrow .btn {
@@ -31,9 +124,10 @@ h2 {
     width: 150px;
     font-size: 20px;
     font-weight: 600;
-    color: black;
+    background-color: rgb(168, 88, 74);
+    color: rgb(7, 7, 7);
     margin-top: 50px;
-
+    border-radius: 9px;
 }
 
 .container .lastrow .btn:hover {

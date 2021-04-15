@@ -10,11 +10,32 @@
 </head>
 
 <body>
+    <nav class="navbar">
+        <div class="brand-title">
+            <a href="/">HOME</a>
+        </div>
+        <a href="#" class="toggle-button">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </a>
+        <div class="navbar-link">
+            <ul>
+                <li><a href="#About">CheckIn</a></li>
+                <li><a href="#About">CheckOut</a></li>
+
+            </ul>
+        </div>
+    </nav>
+    <div class="header">
+        <h1>Entry Management System</h1>
+    </div>
     <div class="container">
         <h2>Enter User Email</h2>
         <form action="" method="post">
             <div class="email">
-                <input type="email" name="Email" class="form-control my-2" placeholder="User Email" aria-label="Status">
+                <input type="email" name="Email" class="form-control my-2" placeholder="User Email" aria-label="Status"
+                    required>
             </div>
             <div class="lastrow">
                 <input type="submit" value="CHECKOUT" class="btn btn-primary btn-block">
