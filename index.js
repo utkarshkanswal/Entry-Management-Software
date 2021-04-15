@@ -4,6 +4,18 @@ const path = require("path");
 const bodyParser = require("body-parser");
 const methodOverride = require("method-override");
 const mysql = require("mysql");
+const nodemailer = require("nodemailer");
+
+var transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: 'Your Email',
+        pass: 'Your Password'
+    }
+});
+
+
+
 const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
@@ -18,7 +30,8 @@ db.connect(err => {
 });
 const port = process.env.PORT || 8000;
 const {
-    connected
+    connected,
+    getMaxListeners
 } = require("process");
 const {
     functions
@@ -71,6 +84,20 @@ app.post("/CheckIn", function (req, res) {
         if (err)
             res.send("Some Error Occurred");
         else {
+            var newdate = new Date();
+            var mailOptions = {
+                from: 'Your Email',
+                to: obj.Email[0],
+                subject: 'Your CheckIn Details',
+                html: '<h4>Hi, ' + obj.Name[0] + ',</h4><br><p>CheckIn: ' + newdate + '</p>',
+            };
+            transporter.sendMail(mailOptions, function (error, info) {
+                if (error) {
+                    console.log(error);
+                } else {
+                    console.log('Email sent: ' + info.response);
+                }
+            });
             res.send("Successfully Added");
         }
     });
@@ -86,12 +113,25 @@ app.post("/CheckOut", function (req, res) {
         if (err)
             res.send("Some Error Occurred");
         else {
-            let q1 = 'SELECT UserName, HostEmail ,CheckIn, CheckOut from user where UserEmail="' + email + '"';
+            let q1 = 'SELECT * from user where UserEmail="' + email + '"';
             console.log(q1);
             db.query(q1, (err, results) => {
                 if (err)
                     res.send("Some Error Occurred");
                 else {
+                    var mailOptions = {
+                        from: 'Your Email',
+                        to: results[0].HostEmail,
+                        subject: 'CheckIn Detail of ' + results[0].UserName,
+                        html: '<h4>Hi, ' + results[0].HostName + ',</h4><br><p> Details Of ' + results[0].UserName + '<br> Name: ' + results[0].UserName + '<br>CheckIn: ' + results[0].CheckIn.toDateString() + '<br>CheckOut:' + results[0].CheckOut.toDateString() + '<br>Phone No: ' + results[0].UserPhone + '</p>',
+                    };
+                    transporter.sendMail(mailOptions, function (error, info) {
+                        if (error) {
+                            console.log(error);
+                        } else {
+                            console.log('Email sent: ' + info.response);
+                        }
+                    });
                     console.log(results);
                     res.send("Successfull");
                 }
