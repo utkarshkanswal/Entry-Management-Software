@@ -1,4 +1,5 @@
 # Entry Management Software
+>This is a Entry Management Software in which at the time of check in Employee will get an email about checkin details and at the time of Checkout Host will get all the check in and checkout details of employee on his email.
 <hr>
 
 ## Steps to use the software:
